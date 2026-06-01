@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<title>【恭也・夏至病】6_21 夏に至る病</title>
+<style>
+*{margin:0;padding: 0;font-size: 14px;font-family : 'メイリオ',Meiryo,Osaka,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック','MS PGothic',sans-serif;}
+body{width: 100%;margin: 0;padding: 0;background-color: #f7f7f7;position: relative;}
+a{color: #666666;}
+a:hover{color: #CD0000;}
+h1{font-size: 21px;color: #666666;margin: 0px;padding: 0px;border-bottom: 1px solid #CCCCCC;}
+h2{font-size: 16px;color: #666666;margin: 5px;padding: 50px 0 0 0;border-bottom: 1px dotted #CCCCCC;}
+label{transition: all 0.2s;}
+#toggle{display: none;}
+#label_toggle{display: block;width: 100px;text-align: center;padding: 0;border: 2px solid #CD0000;background-color: #FFFFFF;color: #CD0000;border-radius: 15px;position: fixed;top: 10px;right: 10px;z-index: 1005;}
+#label_toggle:hover{background-color:#CD0000;color:#FFFFFF;}
+header{display: block;width: 0px;height: 100%;position: fixed;background-color: #FFFFFF;border-left: 1px solid #CCCCCC;z-index: 2;top: 0;right: 0;overflow-y: auto;overflow-x: hidden;transition: all 0.2s;padding: 50px 0 0 0;box-sizing: border-box;}
+#toggle:checked + header{width: 200px;}
+header label{display: block;width: 180px;margin:0 5px;padding: 5px;border-bottom: 1px dotted #EFEFEF;}
+header label input[type="checkbox"]{margin-right: 5px;}
+label:hover{cursor:pointer;background-color: #EFEFEF;}
+.wrapper{display: block;width: calc(100% - 30px);max-width: 1100px;padding: 30px 15px 100px 15px;margin: 0 AUTO;overflow: hidden;position: relative;background-color: #FFFFFF;}
+/* ログ部分 */
+dl{display: block;margin: 0;padding: 3px;box-sizing: border-box;}
+dl::after{display: block;content: "";clear: both;}
+dt{display: block;font-size: 0.8em;font-weight: bold;float: left;width: 100px;margin: 0;padding: 5px 5px;text-align: right;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+dd{display: block;width: calc(100% - 120px);margin: 0;padding: 2px;float: right;line-height: 1.8em;}
+.zatsudan{width: 95%;margin: 0 0 0 AUTO;background:#f7f7f7;border-left:1px solid #CCCCCC;}
+.other{background-color:#fff7ef;}
+.secret{width: 98%;margin: 0 0 0 AUTO;border-left:3px solid #CCCCCC;}
+.group{background:#f9f9f9;border-left:1px solid #CCCCCC;}
+@media (max-width:480px){
+  dt{display: inline-block;float: none;width: calc(100% - 6px);margin: 0;padding: 3px 0 0 3px;text-align: left;}
+  dd{display: inline-block;width: calc(100% - 6px);padding: 3px;float: none;}
+}
+</style>
+<style>
+.tab_0{background-color:#fff2f2;border-color:#b94047;}
+.tab_0.selected{display: none;}
+.tab_1{background-color:#fff2d6;border-color:#ff9900;}
+.tab_1.selected{display: none;}
+.tab_2{background-color:#ebf7ff;border-color:#63b7ff;}
+.tab_2.selected{display: none;}
+
+</style>
+</head>
+<body>
+<label for="toggle" id="label_toggle">表示/非表示</label>
+<input type="checkbox" name="toggle" id="toggle">
+<header>
+<label>▽ 非表示にするタブ</label>
+<label for="main"><input type="checkbox" onClick="Hide(this)" class="checkbox" id="main">メイン</label>
+<label for="zatsudan"><input type="checkbox" onClick="Hide(this)" class="checkbox" id="zatsudan">雑談</label>
+<label for="tab_0"><input type="checkbox" onClick="Hide(this)" class="checkbox" id="tab_0">天界</label><label for="tab_1"><input type="checkbox" onClick="Hide(this)" class="checkbox" id="tab_1">成長</label><label for="tab_2"><input type="checkbox" onClick="Hide(this)" class="checkbox" id="tab_2">info</label>
+</header>
+<div class="wrapper">
+<h1>【恭也・夏至病】6_21 夏に至る病</h1>
+<h2 id="day1">【恭也・夏至病】6_21 夏に至る病</h2>
+<dl style="color:#666666" class="zatsudan"><dt>▼</dt><dd>    【お知らせ】<br>・ハウスルール等を画面上に表示しております。開始前にご一読ください。<br><br>・本卓はKPレス対応シナリオのため、一部の場面でPCの行動が制限されることがあります。（提示される選択肢より行動を決めてもらう等）<br><br>・ダイス結果や選択によりルートが分岐されます。いつもよりもKPへのゴネが効かないシナリオであることをご了承ください。<br><br>・これは全4話のキャンペーンシナリオの最終話です。<br>　あなたが無事、生き残れますように。   </dd></dl>
+<dl style="color:#666666" class="zatsudan"><dt>▼</dt><dd>    【駒について】<br>3話の部屋よりコピーし画面上に配置しております。<br>駒を長押しタップし、「自分の駒にする」を選択して回収してください。   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    おつかれ～～～～～さまです！！！   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    第五走者・恭也選手　夏の陣　戦いも最終局面です<br>生存ルートは家に帰り、STR*4に成功する<br>ただひとつのみとなりました　厳しい状況です<br>果たして運命や如何に   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    おつかれ～～～～～～！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ひい　最終日だ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ついにやってきました最終日　6/21   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    楽しくて夢中でここまできてしまった   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    夏至だよ～～～～～！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    楽しいよね   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    うれしい～～～～～楽しんでくれて   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    生きろ生きろ生きろ～～念   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    改めて　最終決戦の地にようこそ！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    わ～～～～い！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ついにここまで来ました　泣いても笑ってもこれがラストです   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ゴクリ…   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    正直ロストはロストで旨味はあるシナリオなんであんまり肩ひじ張らず……   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    爪痕残そうな…   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    恭也くんとしてはなんとしてでも帰る気だろうけど<br>応援しています   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    気合は十分だあ！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ｯｼｬ！！！！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    三日間おかしいことしかないから難しいよ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ここで何が待ってるんだ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ふふ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    全部今のところ点ですが線になったりするんですか？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    謎　謎すぎる   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    どうですかねえ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    楽しも～～～～～～   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    でも　今まで通ってきてもらった中でもめちゃくちゃクトゥルフ神話TRPG……！って感じのシナリオかも   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    実は   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    容赦ないってことだあ！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ﾎﾎﾎ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    PCの決めたこと信じて進ませていただきます！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    その意気！！！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    っしゃ！いっぱい頑張ってほしいのでよければ始めていくぜ！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    準備はいいか～～～～～～～！？！？！？？！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    おねがいします！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    頑張って生き残ろう！   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    ったりめえだあ！！   </dd></dl>
+<dl style="color:#ea3e77" class="group tab_0"><dt>深田 千早</dt><dd>    応援してるよ   </dd></dl>
+<dl style="color:#666666" class="zatsudan"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="zatsudan"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>親戚の家に泊まることになった。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>この村は、なんとなく、おかしい気がする。<br><br>理由は沢山ある。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>それをひとつずつ、振り返っていった。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>それはさておき。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>今日は6月21日。<br><br>夏至だ。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    **********************************<br><br><br><br>「夏に至る病」<br><br><br><br>最終話<br><br>　　夏に至る病<br><br><br><br>　作：稀彦 様<br><br><br><br>**********************************   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなたはこの6月、ほとんどを親戚の家で過ごすことになっていた。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    理由はなんでもいい。<br>未成年であれば両親の仕事の都合であるだろうし、成人しているのであれば、住んでいるアパートが全焼したのかもしれない。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>いやはや全く、世の中、何が起こるかわからないものだから。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    日付で言うならば、6月1日から、6月22日まで。そこそこの期間だ。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなたを受け入れたのは、叔父だった。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    叔父はのどかな土地――言葉を選ばずに言うとクソ田舎――に平屋の一軒家を建て、そこで独り住んでいる。<br><br>その一室を、あなたは6月の大半間借りしていた。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    叔父は言う。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「この村、ちょっと変わってるからさ。馴染むまで時間かかるかもね」<br><br>「あ、だから、ここにいる間に馴染めきれないかも」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「無理だな、って思ったら、すぐに逃げるんだよ。」<br><br>「他人の家にまでは入ってこないからさ」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなたはそんな話を聞き流しつつ。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>今日も、梅雨のわりに晴れている空を……<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>まるで、真夏のような空を、<br><br>見上げていた。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    本日の気温は、38度。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    異常気象ではないかと疑う温度をたたき出しているが、ニュースにはなっていない。<br>この地域は毎年、こんなものらしい。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    叔父は今日は朝から忙しそうにしていた。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    いつもニート……否、なんの仕事をしているのか不明な叔父であるが、やることがある日もあるようだ。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「うちの村はね、夏至の日は祭りを開くんだ」<br><br>「っていっても田舎の限界で、村のはずれにある鐘の周りで踊って、皆でお酒とか食べ物を持ち寄って、バカ騒ぎするだけなんだけどね」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「ま。一応、目玉イベントはあるんだよ」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「なんだと思う？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「へえ　祭りね」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「こんなクソ田舎で開く祭りの目玉イベントぉ？？？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「どーーーーっせ、ビンゴ大会だろ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「クソ田舎………まあ、そうなんだけど」苦笑い<br><br>「みんな、この機会にこじつけてどんちゃん大騒ぎしたいのさ。クソ田舎だからこそね」<br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「はい、残念～。はずれです」ビンゴじゃありませーん   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「ほら、あれ。広場にあるでっかい鐘。」<br><br>「この村に初めて来たときに見せただろ？」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「あれを鳴らすのは、夏至の日だけなんだ。」<br><br>   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    目玉イベント、部外者の生贄じゃありませんように！！！！！！   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「それが目玉。」<br><br>「すっごいうるさいけど……体がびりびりして、迫力すごい」   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    源   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    スーパー源   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「鐘、ついたことある？」/   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    そこあたしの墓場なんで…………   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「でけえ鐘…？んなのあったっけ」全然興味なくて覚えてない<br>「ハッピーニューイヤーでふざけてどいつたことならあるぜ？？？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あーーーっ！ここの夏至ってハッピーニューイヤーってことか！！」   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    草   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    つなげ方がバカなのよ   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「んで、そいつは誰が鳴らすんだ？」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「まあ……鐘といえば除夜の鐘が有名だよね。そんなもんだと思っといて」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「やっぱハッピーニューイヤーじゃん！！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「村民、みんなで鳴らすんだよ。かわるがわる皆で」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「だから、恭也も今日鳴らしてみるといいよ」<br><br>「なんか、元気でるよ。知らないけど」/   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「じゃあてめえも鳴らしたことあんのか？」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「うん、もちろん」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「すごい迫力でさあ～、やっぱりあんなに大きいと音も響くよね」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「じゃあ俺の渾身の一撃かましてみるか」ふふん   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「祭りは騒いでこそ！！！だよなあ！！ちょっと胸糞わりーこと続いてたからちょうどいいぜ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「そうそう、いい腕っぷし期待してるよ総長～～」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「じゃ、そろそろ準備しよう。会場設営、手伝ってくれる約束だろ」<br><br>「ほら、いつまでもごろごろしてないで身支度して」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    そういえばそんなことを言われていた気がする。<br>興味があるかはさておき、行くしかない。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「てんめえ　適当に呼ぶな」イラ～   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「手伝い～？んなこと言ってたっけ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「時給いくらだよ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「これ以上金銭を要求するわけ？君にコンビニでいくら貢いだと思ってるの」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「っけ、つまんねえやつ～～」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「青春真っ只中だぞこっちは！！！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「はいはいはいはい」きゃんきゃん騒ぐ横で涼しい顔して立ち上がる   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「俺を使うんだ、高くつくんだぞ～～～」じとーっと見上げる   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「相変わらず生意気な口だねえ」頭一個分高い位置から見下ろしながら   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「これ以上ぐだぐだ言ってるとマフラーはあの新品じゃなくて、俺のおさがりのにしちゃおうかなあ～～」<br><br>「うん、そうしようそうしよう、だってここでの生活費を考えたらそれが妥当だよねえ………」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「出たきたねえ大人！！！！！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「…………まあ、態度次第で考えないこともないかな」ふむ……   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「どうも、きたねえ大人で～～す」手をひらひら   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「見下すんじゃねぇ！！」回し蹴り　えいっ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    叔父ww好きだなｗｗｗ   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    せっかくなので＜キック＞で判定しましょうか   </dd></dl>
+<dl style="color:#a64826" class="main"><dt>くるこ</dt><dd>    やったあ   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    CCB&lt;=25 【キック】 (1D100&lt;=25) ＞ 50 ＞ 失敗  </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    パンチにしときゃよかった   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなたの蹴りは空を切る。<br>叔父は涼しい顔をして、ぶつぶつとつぶやきながら準備に向かった。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「えっと、お酒はそれでしょ。ご飯はお隣の宮野さんたちが仕切ってるから、一旦うちはお酒と麦茶だけいいかな……最悪ニャンコつれていこう。猫は世界を救う」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「あ、そうだ！タオルとポカリ！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「さすが夏至だよね。日照時間が一番長いからか、めちゃくちゃ暑くなるんだ。」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「酒盛りが始まるのは夕方からだから、それまで動きっぱなしだよ。暑いよ。恭也、ちゃんと持っていきなよ」/   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ﾁｯ！！！手加減してやらぁ！！！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「へいへ～～～～い」適当に聞く   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    慌ただしく駆け回る叔父をじとりと睨みつけながら、あなたも渋々身支度を進めることだろう。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なんだって～～？あー、ポカリな」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「俺、アクエリがいんだけどぉ？？？」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>     「どっちでも一緒だろ～～」遠くから大声   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ちっげえし！！！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ポカリは風邪ひいたときに飲むやつだろーが！！！」   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ド偏見   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あれは風邪の味するから不味ぃ」   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    すまんｗｗｗｗ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    焚胡家 かわいい　はやくお父さんと仲直りしようね   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    優しい   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「はいはいはい、仕方ないなあ。会場行く前にまたコンビニでも寄ってあげましょうね」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ったりめえだ！！」満足   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「よし、荷物積み完了。恭也、準備できたー？」/   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あーー、準備？だいたいこんなもんだろ」適当に済ませた   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「よし、じゃあ行くよ～」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなた達は荷物をまとめ、家を出た。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    足元にまとわりついてくる猫をいなしながら車に乗り込み、叔父がエンジンをかける音を、助手席で聞く。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「忘れ物、ないよなあ。いっつも不安になるんだよね」/   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    忘れ物？なんかのフラグ？こわい   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「忘れても何かしら誰か持ってきてんだろ」   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    全部意味深に見えるよね   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なーー？　マスターソード～？♪」猫抱きかかえて手の中で転がそ   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    うなあん   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「そうだね！まあ、大丈夫か。塩も持ったし」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「塩ぉ？？？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「んなもん何に使うんだ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「ニャンコ、ちょっと迷うけどさすがに置いていこう。暑いし忙しいしで構ってる暇ないだろうし」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「だとよーーーーー、ま、あちーもんな」残念そうに地面に放つ   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「お祭りだからね！」<br><br>「肉やら魚焼くときも役立つし……汗いっぱいかくし、塩分って大事」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「そーゆーもん？」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「そーゆーもん。それにしてもその子、すっかり恭也にも懐いたね」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「遊び相手こいつくらいだしな」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「俺のパンチもかわせるようになったし、名前に負けねえ猫になった」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「正直初日にそう呼び始めた時はどうかと思ったけど……もうそれも慣れちゃったよ」<br><br>「もうここに来て20日も経ったんだもんなあ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「今日が君の最後の夜だねえ。そう思うと少し寂しくもあるね」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「まあ、恭也みたいな都会っ子にはしんどい場所だったかもしれないけどね」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「電波もぜんぜん繋がらないし、ここ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「寂しく思ってくれてんだ？へ～～～～～～～～～～～」　ちょっとびっくり   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    最期の夜になりませんように   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あーだこーだ言ってっけど、自分からここに来たんだし、まあ悪くなかったんじゃねーの」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「クソ親父の熱も流石に冷めてんだろ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「来たときみてえにふらっと帰るわ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「今日の祭りではめ外してからな！！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    叔父はその言葉を聞いて、にこりと笑う。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「良かった、その言葉が聞けて」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「祭り。大したもんじゃないけど、まあ、楽しんでいって。いい思い出になればいいな」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なあ？ちょっとくらい許されんだろ？」お酒をくいっと飲むジェスチャー   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「さすがに許可は出せないよ、保護者としてはね？」<br><br>「やるなら俺の見てないとこでやって、知らないふりしとくから」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「さっっすが♡」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「もう、君ってやつは……」<br><br>「さ、ぐだぐだしてないで早く行こう。まずはコンビニだったね。出発進行～」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「いえ～～～い」浮かれた   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    エアコンの風量を最大にしながら、叔父は車を走らせた。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>ああ、<br>車内だというのに、めちゃくちゃ暑い。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    連れて行かれたのは、叔父の家から離れたところにある広場であった。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなたはここに、一度だけ来たことがある。<br>この村に到着した日の案内で。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「初日に来ただけだよね、たぶん。まあ用事なんてないか、鐘があるだけだし」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    そう言って、叔父は車を止めた。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あーーーやっと思い出したわ、ここね」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「そう。今日の会場はここ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    ここは村の人達もなかなか足を運ばないらしい。<br>理由は簡単だ。<br>本当に鐘以外、何もないのだ。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    なぜこんなところに鐘を設置したのだろうと疑問に思うほど、ここには何もない。<br>開けた土地の真ん中に鐘楼のようなものが建てられている。<br>本当に、ただそれだけ。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    ＜知識＞   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    CCB&lt;=50 【知識】 (1D100&lt;=50) ＞ 99 ＞ 致命的失敗  </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    だめだわ！！！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    どうした！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ｗｗ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    消費したんだよね！！！！ここで！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    きっとそう！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    それそれそれ！！！先にね！！悪いものはだしておかないと！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    まじで鐘に興味ないのかもしれない！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ｴﾗｲ!!!!!!!!!!!（ｴﾗｸﾅｲ）   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    えっと　OK   </dd></dl>
+<dl style="color:#e91e63" class="group tab_1"><dt>KP</dt><dd>    知識　99F   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    鐘楼とは寺院のなかにある建築物だ。<br>仏教法具の釣鐘、梵鐘をつるすために存在している。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>どこか、アンバランスさを感じる。<br><br>どこか、というとよくわからないが、<br>この村はやはり、ちょっと……おかしいのではないか。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    何故か、背筋にひやりとしたものが伝うのを感じた。<br>正気度を２減少させてください。   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    F消費　これで   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 焚胡 恭也  ] SAN : 80 → 78   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    まあまあまあまあ　いいでしょう   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    処理ありがとうございます…うう   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    鐘には興味持って　いや持たないで<br>危機感を持って   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ん……」ピタっと一瞬止まる   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ここ数日で冴えた勘ってやつ？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    ギロリと建物睨んでおこう   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「？　………恭也？どうしたの」固まった恭也を振り返り見る   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「何メンチ切ってんの」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ひと暴れしようと思って」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なーーーんてな」ベー   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「さっさと準備しよーぜー　あちい」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「こらこら。この村の大事なシンボルなのに」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「昔は、これで火事を知らせたんだって」<br><br>「火事の時に鳴らす鐘にしてはデカすぎるよね、めちゃくちゃ不便。たぶん嘘だよ」/   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    この場から逃げる選択取ってくれるかなあ…………微妙なんだよなあ   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なんで火事の鐘がハッピーニューイヤーになったんだよ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「ハッピーニューイヤーじゃないからね　夏至だからね」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「普通そう思うよね、なんでそんなことに？って」<br><br>「まあでも、村の人たちはそう信じてるっぽい。それがここの普通なんだ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「あれがさっき家で教えた鐘。夏至の日の夜、皆で順番にあの鐘を鳴らしていくんだ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「君も鳴らしてみなよ、あんなに大きな鐘を鳴らせるなんて、なかなかないでしょ？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ただ気になっただけなんだけどよ、夏至っつったっけ、その日以外に鳴らすとどうなるんだよ。」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「え？うーん………鳴らしてる人は見たことはないけど。別に怒られはしないんじゃない？家から離れてる場所だし。苦情も入らないとは思う」   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    鐘は別に関係ないんですよね   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    ただ人が入れて遮熱性があることが重要なだけなので…………   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「そーゆーもんか」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「っつーか、そういうのって、まあ、言っちゃえば俺は部外者なんだけど、鳴らしていいもんなんだな。」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「うん、もちろん！うちは旅人さん大歓迎だからね、きっと祭りでも揉みくちゃにされるよ、たぶん」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「さ、恭也。荷下ろし手伝ってね」重たいクーラーボックスを手渡しながら   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    鳴らせ鳴らせ言ってくる～～～からなんか鳴らしたくないよ～～～   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    正しい   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    いいですよ   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「へいへ～～～～い」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    ぽいぽい荷物を渡されながらひょいひょいと言われた場所に運ぶ   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    叔父と話しながら荷物を降ろしていると、村人たちが続々とやってくる。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    村人たちはあなた達ににこやかに話しかけ、楽しそうに準備を進める。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    お菓子を持ってくる家。料理を持ってくる家。<br>あなた達のように、飲み物を持ってくる家。<br>犬を持ってくる家。様々。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    叔父の言う通り、この村では、この夏至の日が祭りのようなものなのだろう。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>皆、笑顔で。<br><br>楽しそうで。<br><br><br>和やかな雰囲気だ。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    ＜アイデア＞   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    CCB&lt;=65 【アイデア】　今度こそ (1D100&lt;=65) ＞ 7 ＞ スペシャル  </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ほんまにえらい   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    久しぶりに青い   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    昨日から赤かった   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>ふと、違和感を覚えた。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなたは思った。<br><br>あまりに、和やかだった。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>行方不明者がいるようには思えないほど、と。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    だって、少なくとも昨日一人の少年はいなくなった。<br>その前にも、数人、いなくなっているはずだ。この村に来た客人が。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>でも誰も、その話をしない。<br><br>心配していない。<br><br><br>気味が、悪い。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    0/1の正気度を失う。   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    そういえばそうだった   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    やばい　飲み込まれるとこだった   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    CCB&lt;=78 【正気度ロール】 (1D100&lt;=78) ＞ 95 ＞ 失敗  </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    私と一緒にならないで   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    思い出して　あきらくんの言葉   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 焚胡 恭也  ] SAN : 78 → 77   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    気をたしかに   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「………」一歩距離を置いて様子を伺う   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ﾁｯ………、やっぱ嫌な感じがするぜ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「てめえもてめえも、てめえも、全員クソだな」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「仲間を大事にしねえやつはクソ。なんだよ、この村は。」   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    総長；；；   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    叔父に聞いてみようかな　行方不明のはなし   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いいですよ！RPどうぞ！   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「てめえ、ちょっと面貸せや」準備中の叔父の肩をつかまえる   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「っうわ、って。恭也……どうした？そんな怖い顔して」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「俺もどうかしてたんだけどよ、ちょっといいか」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「うん？なに？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「俺の他に、この村にきた奴いんだろ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「そいつらぁ、どうした」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「お客さん？そうだね、たまに見慣れない人を見かけたような気がするなあ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「婚約者だの、ババアの家に泊まりに来たガキとか、いただろ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「知らねえのか？」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「俺はそこまでご近所の人と立ち話はしないからなあ……恭也、いる間に知り合ったの？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「まあ、そんなとこだ。」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「でもそいつらが見当たらねーんだよ。いなくなっちまった。」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なんでここにいるやつら、何も気づいてねえみてえなんだ？」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「え？いなくなった？」<br><br>「それって、何日か前に話してたペットの話じゃなくて？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ペットじゃねえ。それと引き換えに女がいなくなったんだよ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「言ったじゃねえか、てめえは、俺に。君「は」無事でよかったって」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あれ、どーゆー意味だ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「ああ、あの時の話か………」<br><br>「その通りの意味だよ？俺が預かってる身だからね、一応。君は無事でよかったなあって思っただけ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「うーん………人がいなくなったねえ。そういう話は、特に耳にはしてないけど」<br><br>「ごめん、詳しく知らないや」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「あっ、土屋さんのところにお酒あげに行かなきゃ」<br><br>「じゃあ恭也、手伝いは程々に君も楽しみなね。みんなご馳走持ち寄ってるはずだから」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    そう言って、叔父はばたばたとその場を去っていく。/   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    煙に巻く   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「てっめえ、まだ話は終わってな…！！ﾁｯ！！！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なーんか隠してんじゃねえか」   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    源   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「酒飲もうと思ったのによーーー気分悪ぃ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「この場所にも、どーせなんかあんだろ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「全部俺にかかってこいよ！！俺は！！びびんねえからな！！！」と気合を入れておく   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>思わず声を荒げる。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>嫌な予感を。<br>さっき背筋に伝った、ひやりとつめたいものの感触を、無視したくて。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>あなたは、虚空に向かってそう言い放った。<br>周りを睨みつけ、気合を入れる。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>次第に、日が暮れてくる。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>夜が来る。<br><br>長い暑い日が終わる。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>………通常ならば。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>本来夕焼けに差し掛かるだろう時間になっても、まだまだ空は明るかった。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    いや、少し変わった日の暮れ方をしているとでもいうのか。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    この村の周辺は、夕暮れだ。<br><br>しかしこの村の上空は、遠くの空よりも明るい。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    特に灯りを燈しているわけでもないはずなのに。<br><br>この広場を中心に、ぼんやりとした光が空を照らしていた。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>夜がやってきている。<br><br>この村以外に。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>しかしこの村はまだ、明るい。<br><br>暑い。<br><br>夜の涼しさはやってこない。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>この村には、すでにもう、夏が来ている。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    さて。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    あなたはここで、<br><br>叔父の家に帰るか、<br>この祭り会場にとどまるか、<br><br>選ぶことができる。   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ルート分岐です   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    え～～～～～～～～～～～～   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    わたしはここで悩んだ末に冷静になるため一旦風呂に入りました   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    無理だな、って思ったら、すぐに逃げるんだよ。（家に）ってこと～？？？？？？   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    源   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    お前がナンバーワン星野源   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ここでもう死ぬか生きるかなの…！？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    分からない　まってまって～～   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    みんな長考してました　ゆっくり考えていいですよ   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    そうだよ　残ったら死ぬよ   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    手形がないので…………   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    シナリオ進行度聞いていい？   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    6割ぐらいかなあ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    そうか‥‥   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ちょうど折り返し   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    どっち選ぶかにもよる…………   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    切ってもいいし　切るならここ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    準備は終えて祭りはこれからでいったん帰る？？もう祭り始まって一通り終わったから帰る？？   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    まだ叔父の言う鐘を鳴らす時間は来てないですね<br>いまはどんちゃん酒盛りの時間です   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ふむ   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    読めねえ～～～～～～～～～どっちに行くんだろう   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    絶対鐘なんかあるじゃん～～～～   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    鐘ぶっこわしたらいいかな～～～～～～   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    家か～～～～   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    PCは祭り参加　私は家に帰りたい　PCの家に帰る理由が思いつかなければ参加だわ<br>   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ちょっとこの先は選択・出目によるエンド分岐になるので行動自体はかなり制約されてしまう<br>やりたいこともそのまま叶えてあげられないと思う…………   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    うん　鐘はぶっこわせないね…   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ありがとう（察してくれた）   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    重機でも持ってこない限り壊せません   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ここまで1時間半かかってるけど　たぶんこの感じだとこのあとも1時間半ぐらいかかる気はする   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    どっち選ぶかにもよるが   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    んん～～～～～～～～～   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    でも気になるやりたい　すっきりしたい   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    わたしはどっちでも大丈夫ですよ！おまかせ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いっぱい悩んで大丈夫   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ここが本当に分岐点なので　いちばん大事です   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ありがとう   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いままでのこと全部思い出して考えてほしい   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    え～～～～～～～～～   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    はい   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    めっちゃ悩んでくれててにこにこする   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    そう　冷静になってほしい　おねがい　たのむ   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    3話　そうやってクソデカSANチェックを乗り切ったんだよ   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    2話はちょっと振り返ってもよかったんだけども   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    長考   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    じっくり考えてくれてうれしい   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    わたしは2時間かけたから   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    2時間！？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ん～～～～～   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    叔父が怪しいと睨んでんだけど、   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    風呂入ってスキンケアして髪乾かしてる間ずっと考えてた   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    うん   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    3日目叔父出番なくて一休みだったのも何か怪しい   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    絶対力溜めてる   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    うんうん   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    魔術は特に使ってないんですけどお前を死なせないように必死でしたね   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    「無理だな、って思ったら、すぐに逃げるんだよ。」のセリフも叔父だよな―――　言うとおりにするのも嫌だな―――   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    3話　登場しないルートだったからな   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    でも祭りって重要なイベントだと思うから蹴るのもありだなー   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    目玉イベント、部外者の生贄ですよ<br>生贄はお前   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ふふ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    「他人の家にまでは入ってこないからさ」って言わても本当の俺の家ないしなー   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    そうなんよね   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    このセリフたちがまずずっとひっかかってるんだけど   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    あえてそうしむけてるのかなーー   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    [other] 深田 千早 : 家ってどこ？マイホーム？？それともおばさんち？？<br>[other] 深田 千早 : マイホームならそっち一択ですが！！！！？   </dd></dl>
+<dl style="color:#ea3e77" class="group tab_0"><dt>深田 千早</dt><dd>    あたしとおんなじこと考えてる   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    「他人の家にまでは入ってこないからさ」<br><br>まあ俺だったら入れるんだけどね、の意だと　KPは解釈しています   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    祭りにする！！！！PCのキャラ通りにする！！<br>   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    あ～～～   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    家に帰るなら猫の餌やりとか適当な理由をつけようかと思ったけど！！そんなにまめなやつじゃない   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    怖い！！！怖いよ――――   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    怖い！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    表でもっかい聞きます　覚悟決まったらRPおねがいします   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>あなたが選んだのは<br><br>「祭り会場にとどまる」<br><br><br>この選択でよろしいですか。<br><br>   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    んんんん   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    あんまり暴れさせてあげられないんだよなあ……   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    会場にとどまる   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    目を光らせておく！！！   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    ああ…………   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    さようなら…………   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    家に後ろ髪ひかれつつ…あとは恭也にまかした……   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    わかりました、この選択で描写を進めていきます。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>あなたは広場に残った。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>違和感があったかもしれない。<br>警戒心があったかもしれない。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>でも、そう思うからこそ。<br>ここから逃げる、という選択を、取ることはできなかった。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>ここの村は何かがおかしい。<br>あいつも、あいつも、あいつも………叔父でさえも。<br><br>自分が見ておかなければ。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>何か、悪いことが起きないように。<br><br>これ以上、犠牲が生まれないように。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>しかし、<br><br>目を光らせていたものの、何かが起きるわけもなく。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    勧められる飲み物を口にした。<br>周りは酔っ払いばかりだったから、叔父には黙認された酒も案の定ふるまわれた。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    村人たちと杯を交わし、おいしい食事で腹も満たされ。<br><br>警戒心を緩めたわけではないが、酒も入ったことであなたの気分は高揚していく。   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    緊張感！！！！！   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    焼きそばに食らいつきながら缶ビールを煽っていると、後ろから声を掛けられる。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「あ、悪い子発見」<br><br>「ちょっと……だいぶ出来上がってない？程々にしなね」やっと仕事が終わった、と隣に座って一息   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「俺が悪い子ならてめえも同罪だなあ！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「知ってて止めねえってことはそーゆーこと♪」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「こんくらい、よゆーーーだわ！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「もう………ちょっと、みなさん。ちょっとは勘弁してあげてくださいよ～」恭也に次々とお酒を注ごうとする大人たちへ苦笑い   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「はっはっは、すまんすまん、兄ちゃんがあんまりいい飲みっぷり食べっぷりなもんでな！なあ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「クッソ親父にバレたらやべえから秘密な！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「おう！未成年がどうだってんだい。関係ねえ、今日は無礼講だ！」<br><br>「お前さんだって、もう立派な男だもんなあ！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    恰幅の良いおじさんにばしん、と背中を叩かれる。<br>どっと起こる笑い。隣で叔父はやれやれ、と額を押さえている。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「っでもなあ！！てめえら調子乗りすぎじゃねえの？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なんかよー、わざとらしいんだよそれ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なーんか、しらけたわ。きめえからここでやめとく。」飲む手を止める   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「俺のことはあと気にしねえでてめえらで飲め」   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    わがまま総長…飲むのは好きだけど飲まされるのは嫌いだ！！   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「なーんだ、ツレないじゃねえか……若いねえ」<br><br>酔っ払いのおじさんたちは、あなたの小生意気な態度も面白おかしそうに笑い飛ばしている。<br><br>叔父はさすがにまずいと思ったのか、あなたの腕を引いてその輪から連れ出した。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なにすんだ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「すみません…………こーら、恭也」<br><br>「みんなお前を客人だって歓迎してるんだ、最低限でもちゃんと礼節は持たないと」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なんでいつの間に俺の歓迎イベントになってんだよ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「そんなのいらねえ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「いるいらない、じゃなくて。ここではお客さんはみんなで歓迎するものなの」<br><br>「ド田舎で、不便なことばっかなのに……わざわざ足を運んでくれたんだからさ」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「みんな気前が良くて………だから、俺も嫌いになれないんだよ。この村のこと。不自由なことは多いけどね」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    目を細め、愛おしむように。そう語る。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    そのままゆるく微笑んで、あなたを見た。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「けっ、そうかよ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「さ、そろそろ鐘を鳴らす時間だよ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「恭也、こっち。真ん中のほうに行こう」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    わいわいと歓談していた周りの村人たちは、ぞろぞろとそちらへ向かっていく。<br><br>叔父はあなたの手を取り、鐘の元へと歩き出した。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    向かった先の鐘は、遠くで見るよりも大きかった。<br>大人の背丈以上はあるのではないか。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    まず、村人の一人が、大きく体をそらせながら、打った。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    ごーーーーーーん。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    鐘が、鳴る。<br><br>村人たちが歓声を上げる。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    体がびりびりと震え、揺れる空気を感じた。<br><br>確かに、どこか元気になる気がする。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    正気度を2D6回復する。   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    おおお？？？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    なに　これからごっそり減らすので先にプレゼントとかだったらやだ   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    冥途の土産   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    2D6 (2D6) ＞ 4[2,2] ＞ 4  </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    カス   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ｗｗｗｗｗｗ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 焚胡 恭也  ] SAN : 77 → 81   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「どう？迫力あるだろ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「まあたしかに」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「それは認めてやる」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    そのあとも、村人たちは続けて鐘をついていく。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>力いっぱい打つ駐在。<br><br>控えめに鳴らすおばあちゃん。<br><br>腕を大きくふって力任せにたたく、叔父。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「ほら！恭也も！」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    笑顔で叔父があなたを呼ぶ。<br>次はあなたの番らしい。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    誘導されるまま、丸太につながった縄を握る。<br>さあ、どこまでの力で打つ？   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    ＜STR*任意の値＞<br><br>5…力いっぱい<br>4…そこそこ<br>3…正直なめた   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    ｗｗｗ   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    なにｗｗ   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    鐘の鳴らし方選べるんだｗｗ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    選べますｗ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    どれでも大丈夫だよ　力いっぱいが成功しやすいだけで   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「はあ～～～～っ」ため息ついてしぶしぶやってやるという態度で行くが、実際は自分が一番でけえ音出してやると思っている   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    KAWAII   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    なので、5だな   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    CCB&lt;=14*5 【STR × 5】 (1D100&lt;=70) ＞ 67 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    えらい   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    ぐっと力を込めました   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    ごーーーーーーん！   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    いえ〜〜〜〜い   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    とてつもなく大きな音がした。<br>周りの村人も感嘆の声を上げている。いい場所を打てたらしい。<br>正気度を2D6回復する。   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    SAN値回復キャンペーンこわい   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    2D6 (2D6) ＞ 5[1,4] ＞ 5  </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    カス   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いいほうですって   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 焚胡 恭也  ] SAN : 81 → 86   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    あざす   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    ふふん   ちょっとしてやった顔して満足げ   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「やるじゃねえか兄ちゃん！」「かっこいいぞ～！」「イケメーーン！！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    場がどっと沸く。拍手喝采に包まれ、嫌な気がしない。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ったりめだ  俺を誰だと…」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「恭也、やるじゃん！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「こんなもん、俺にはよゆーだわ！！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「やっとこれで祭って感じ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「うんうん。ね、案外楽しいでしょう？」<br><br>「ここじゃなきゃ、こんな経験なかなかできないよ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    叔父が自分のことのように笑って言う。   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「いや、俺は仲間とハッピーニューイヤーのほうが性に合ってるわ」べー   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「いい思い出になったね！」<br><br>「良い音も聞けたし、今年はこれで安泰！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>瞬間。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>とん、と。<br><br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>あなたは背中を押された。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>バランスを崩し、数歩、たたらを踏む。<br><br>後ろを振り向く。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>そこには、<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>村人、全員が、<br><br>笑顔で立っていた。<br><br><br>   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    こっわ！！   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    次の瞬間、視界が真っ暗になった。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    一体、何が起きたのかわからない。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>目の前に手をのばす。<br>固い。これは金属だろうか。<br><br>息がしにくい。<br>密閉された空間なのだろうか。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    ＜アイデア＞+20％   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    CCB&lt;=65+20 【アイデア】 (1D100&lt;=85) ＞ 43 ＞ 成功  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>まさかここは、<br><br>鐘の中、だろうか。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>鐘を、あんな重そうなものを、落とされた？<br><br>   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    目玉イベント来たじゃん！！！やだーーー！！！！   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>背筋が冷える。<br><br>一体この鐘は何トンあるのだろう。<br>持ち上げることなんてできるはずがない。<br><br>   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    源だったんだって   </dd></dl>
+<dl style="color:#e91e63" class="group tab_0"><dt>KP</dt><dd>    PLの勝ち   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なッ‥‥‥！！！！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「っにすんだよ！！！！！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「って、これ‥‥、あの、鐘‥‥の中か！？！？？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「くっっっそ！！！！全員きめえ顔して俺をはめやがったな！？？！？」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あ゛あ゛あ゛！！！てめえもみんなグルだったってわけかあ！？？！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ﾁｯ！！！！びくとも、しねえ‥‥っ」   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    しぬ？？これおわる？？やだやだ   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>分厚い金属の壁の奥で、声がする。<br><br>叔父の声が。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「恭也」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「今日、ここに来た時。鐘を鳴らすことについて聞いてただろ？」<br><br>「鳴らしたら何が起こるんだ？って」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「あのね、」<br><br>「鐘を鳴らす意味はね、本当はないんだ」<br><br>   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「クソかよ」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「この鐘は一年に一度、この日だけ鳴らすの」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「君みたいな子を、おびき寄せるために」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「重要なのは"この場"に客人を呼びよせることだから、さ。」<br><br>「鐘にそんな大した意味はない」<br><br>   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「てめえ全部このためかよ」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「で？ここに俺を閉じ込めてどーーーしてんだ？クソ野郎」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>叔父は、淡々と語りだした。<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「この村は病んでるんだ」<br>「生け贄を差し出さないと、夏が来るの。」<br><br>「夏は、熱すぎて。皆燃えちゃうんだ。」<br>「そういう神様がいる土地なの」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「…………生け贄がいればね、」<br>「生け贄にだけ夏が来るんだ。」<br><br><br>「皆を助けてくれてありがとうね」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>わはははは、と、笑い声が響く。<br><br>いやあしかし、今年はもう大丈夫だなぁ、なんて、和やかな声が。<br><br>   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「死ね、死ね‥、クッソ野郎ども、」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「死ね死ね死ね死ね」と鐘の奥にいる野郎共を睨み続ける   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「不思議なことにさ。」<br><br>「なぜか毎年、この日まで残ってくれる人は少ないんだ。」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「一体客人たちに、何が起きているんだか」<br><br>「普通に暮らしてもらってるだけなのにさ……」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「まあでも、今年は運がよかった」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「何回か危なかったけど。」<br><br><br>「君は、最後まで残ってくれた」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    「ねえ、恭也」<br><br>「言っておいたでしょう。」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「馴染めなかったら逃げな、って」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>「残ってるってことは、いいってことだもんね」<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「だってずっと、言っておいたもんね？」<br><br><br>   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「黙って死ねやカス」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「勝手に決めんな」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「出せ、出せ！！！出せよ！！！！」   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>  </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    だんだん、あなたの呼吸は荒くなる。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    これは酸素が減っているからだ。   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br>しかし。<br><br>密閉されているから、では、ない。<br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>熱い。熱されている。<br><br><br>鐘が、熱い。<br><br><br>   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なんっだ、これ‥‥っ、」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「はあっ、はあっ‥‥、」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「なんで、こんなに、熱っ‥‥」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「あっ、ああっ、」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「‥‥‥ッ！！！」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「やだっ‥‥くっそ、こんなんでっ‥‥」   </dd></dl>
+<dl style="color:#927a3a" class="main"><dt>焚胡 恭也 </dt><dd>    「ぐっ‥‥ふ、‥‥うっ‥‥」こらえる   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br>「…………ごめんな」<br><br><br>「でも、」<br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>「ありがとう。これで俺たちは助かるよ」<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>燃えるような熱さの中、<br><br><br>そんな声を、聞いた。<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    <br><br><br>…<br><br><br><br>   </dd></dl>
+<dl style="color:#666666" class="main"><dt>▼</dt><dd>    **********************************<br><br><br><br>「夏に至る病」4話<br>6/21：夏に至る病<br><br><br>　　END2　「夏に至る」<br><br>　　探索者ロスト<br><br><br><br>**********************************   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    やーーーー～～～～～っですよねえ！！！！！！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    …………………ということで   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ようこそ　こちら側へ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    （すしざんまい）   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    家か～～～～～～～～～～～～～～～～   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    家　だったん　だよねえ…………   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    おつかれさま！！！！！！！ありがとうございましたああ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    おつかれ～～～～～～～～～～～～～～～～～…………   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ちょっとね　条件を満たしていなかったので<br>祭りに残ったら　ロスト確定でした   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    まず　まずまずまず　シナリオ背景と各話の概要を聞いてくれや   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ひいいーーーー   </dd></dl>
+<dl style="color:#e91e63" class="group tab_2"><dt>KP</dt><dd>    ■シナリオ背景<br>　これは生贄として目をつけられていた若者達が、生贄になるのか、逃げるのか、はたまたその途中で死ぬのか。たったそれだけの物語だ。<br><br>　この村は過去、クトゥグアの召喚に失敗し、ヤマンソが降り立った土地である。以降この土地は呪われ、夏至の日に生贄を捧げないと、ヤマンソが再来して燃えつくされてしまうようになった。毎年毎年、生贄を捧げるようになった。<br>　村人たちは外から客人を呼びこみ生贄にすることを決めた。村人たちだけでまかなうことは、現実的に不可能だからだ。客人の調達は各々が適当な理由を付け知人を連れ込むか、誘拐するか、様々であった。このシナリオの想定では、探索者は誘拐された側の人間である。よって、本当の親族なのか、親族だと呪文により思い込まされていたのか、それは好きに決定していい。しかしあなたがこの村にくることになった理由は捏造されたものであるため、家を燃やされたことにした人は安心していい。ちゃんとある。   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    なるほど・・・・   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    まずこういう背景ね<br>次　各話の真相   </dd></dl>
+<dl style="color:#666666" class="group tab_2"><dt>▼</dt><dd>    ■各話の簡単な真相<br><br>▼無事でよかった<br>　息子を生贄にされ、村を恨みながら死んだ一家が、同じような犠牲者を出さないようにかくまっていた話。<br>　登場していた少年、女性は、あなたのように救助はされていない。18日時点で村の外に脱出できている。<br>　幽霊だから仕方ないのかもしれないが、助け方を考えてほしい。そんな背景だ。<br><br>▼道端のいし<br>　人間を救う役割を持つ地蔵菩薩が、別次元の神から探索者を守ろうとした話。<br>　ここで手形をつけられると、最後、地蔵菩薩に護ってもらうことができる。しかし3話目でグレート・オールド・ワンの世界をのぞき込んでいる場合は、そこで守護を使い切っているため、機能しない。<br>　本来笑顔とはいいものであるはずなのに、人以外が笑っていると不気味になる。助け方を考えてほしい。そんな背景だ。<br><br>▼逃げ水、駆け足<br>　狂気に満ちたこの村に引き寄せられてやってきたゴグ＝フールが、ヤマンソの生贄を横取りした話。<br>　この村は親戚の言うように病んでいる。狂気によって。ゴグ＝フールは狂気を食べるため、ここを良い餌場だと認識した。<br>　少年は願い通り神には会えた。しかしその末路は、捕食、だ。それでも、この村で死ぬよりは幸せだったかもしれない。<br><br>▼夏に至る病<br>　この村は病んでいる。ヤマンソによって、狂気に浸食されている。<br>　探索者が燃えたなら、村が涼しくなる話。正しい夏が来る話。正しい夏に至った話。<br>　探索者が燃えなかったなら、村が熱くなる話。間違った夏が来る話。間違った夏に至った話。   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    結構これ　見える世界180度変わるかも   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    訳、みんな叔父から守ろうとしてくれてた！？   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    YES   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    1話のセクハラ野郎も<br><br>2話のお地蔵さんも<br><br>味方です   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    手形ーーーーついてたけど、グレート・オールド・ワンの世界？みてたのか？   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ちょっと人外だったせいで　価値観ちょっと違ったね<br>気づけなかったね   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    えっと、各話のチャートもまとめたのあるんで書きます   </dd></dl>
+<dl style="color:#666666" class="group tab_2"><dt>▼</dt><dd>    1話目：家についていく／ついていかない<br>　　　 ついていかなければ速攻でシナリオ終了   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    今回はついていきました　ここはだいたいみんな一緒   </dd></dl>
+<dl style="color:#666666" class="group tab_2"><dt>▼</dt><dd>    2話目：お地蔵さんに腕を掴まれる／掴まれない<br>　　　 後遺症（恩恵）を持つか持たないか　エンド描写の若干の違い   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    うん   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    今回背中についてたのは別物です<br>あの状況、振り返っているかどうかで後遺症有無が変わる<br>POW*5に失敗したら強制振り向きからの後遺症／POW*5に成功していると選択制   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    なるほど   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    今回は振り向いてなかったので、加護である手形はついていません   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    やーーーー！！ざんねん   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    あのね   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    この村は　わるい村   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    わるい村で悪いとされていることは　いいこと   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    というわけだったんですな   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    納得いった   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    次3話   </dd></dl>
+<dl style="color:#666666" class="group tab_2"><dt>▼</dt><dd>    3話目：そもそも最初の段階で少年の誘いを断る→速攻でシナリオ終了<br>　　　 少年について神に会いに行く→ロスト<br>　　　 深淵を覗き込まない→生還<br>　　　 深淵を覗き込む→1d10／1d100SANチェック後親戚に救出され生還<br>　　　 SANが0になっても生還報酬を受けて生還扱い、命ある限り4話目に進む   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    深淵というのがグレート・オールド・ワンです   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    把握   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ラスト　最終話   </dd></dl>
+<dl style="color:#666666" class="group tab_2"><dt>▼</dt><dd>    4話目：祭り会場に残る → 生贄直行ルート・手形の有無で生死が決まる<br>　　　 家に帰り、親戚の腕を振り払えない→祭り会場に引き戻され生贄ルート・手形の有無で生死が決まる<br>　　　 家に帰り、親戚の腕を振り払う→階段落下2d6のダメージで耐久が1以上残れば生還・手形があれば確定生還   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    家に帰ったら、家探しの流れになっていた<br>その途中で探索者がいないことに気が付いて連れ戻しに来た親戚とタイマン<br>そのあと引き戻されるか、振り払えるか   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ｶｰｰｰｰｰｰｯｯｯｯタイマンこっちか！！張りたかった！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ね～～～～～～～広場にとどまった時点でルート確定だからさ……ちょっと迷ったけどあんなに悩んでたんで　決断を優先することにしました   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    恭也くんは3話までつだ♀とおんなじエンド踏んできたね<br>最終話の　帰る／残るで分かれた   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    やーーーーーーー逃がそうとしてくれたに気づけなかったから私の負けだ！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いまだにこの生贄ルートに進んで生還した奴おらん………みんな燃えてる   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    あのさ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    叔父に固執しすぎた！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    みんな燃えてるwww   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    今回　この茶色の魂のキャラシを初めて見た時さ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    名前見てちょっと震えたんですよ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    このEND2を　そんな　体現するような名前でいらっしゃって   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    燃えましたわ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ふｗｗｗｗｗｗｗｗｗ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    燃えましたねエ！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ここから不死鳥のごとく返り咲くことはできませんか！？！！！？！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    来世！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    できないっすね   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    後悔はない！！！！！！やりたいことやらせてもらった   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    今さ　まだ私が通過中なんだけど   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    夏至病の魂で行くといいと聞いた「黄色い蝶」っていうＫＰレスシをやってるので<br>今並行世界の千早連れて行ってるところなんだけど   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ふむ？   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    私がやって面白かったら回します　リベンジしに来てください   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    おんなじ作者さんのシナリオ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ちょっとどういうことか分かってないぞ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    夏至病の魂また使えるの……？なにもわからないかお   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    並行世界…？   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    最初ここで死んだ千早をロスト救済して連れて行こうか迷ったんだけど<br>ロスト救済っていろいろ戸籍とか考えなくていいこと考えちゃって面倒だったので<br>もう一人千早作って遊びに行ってる   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ただ夏至病通過済みだと味わい増すシナリオなだけなんだと思う   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    はーーーん？？なるほど   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    生還した人だとその生還探索者連れて行ってる人が多い   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    私は死んだので　コンバートして新キャラ（記憶とかはない）作って連れて行ってる   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    それだけ　混乱させてすまん   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    とても分かった   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    まだ入り口に立っただけなので全貌分かってない　面白かったらまたＫＰやるんで遊びに来て   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    めちゃくちゃシナリオおもしろかったなあああ  やった感強い   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    な～～～～～～～それな   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ありがとおお！！！遊びに行かせてください！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    あ　そうだ　１こ情報言い忘れてた   </dd></dl>
+<dl style="color:#666666" class="group tab_2"><dt>▼</dt><dd>    余談だが。<br><br>親戚の腕にも手形がある。つまり、親戚だけは、村が全焼したENDの場合も逃げ延びている。<br>またあなたのもとに現れるかどうかは、タイマンverならばKP次第だろう。<br>KPレスverであれば、「いやあごめんごめん」等と言いながら、ひょっこり現れそうだ。   </dd></dl>
+<dl style="color:#666666" class="group tab_2"><dt>▼</dt><dd>    それでは最後に。<br><br>あなたは無事でしたか？<br>お付き合いどうも、ありがとうございました。   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    というのが作者さん談です   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    2話で手形貰ってくるENDだと　そこで親戚の腕にも手形があることに気づく描写があるんですよね   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    なるほど〜〜〜   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    1陣真鍋と4陣の宇かな　あとでログ送っとく   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    やーーー！！でもちょっと悔しい！！！叔父に食われるのも生贄も自分言ってたじゃん！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    せやねん   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    今日な　スーパー源だったんやで   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    源   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    まじでそうだよ そうだわ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    PLの感情はただしい   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ただPCの感情を優先させるの　とてもよかった   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    あ！！！！！！！！！！！！！ごめん寝る前に最後いっこだけ見てもらっていいすか？？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    はい！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    今回歴戦の兵だったんで案内すらしてなかったんですけど   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ホラーでかつソロシナリオだったんで　心臓弱い子のために和む演出ご用意してたんで   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    それだけ見てもらっていいですか？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    見る〜！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ハウスルールの上にKP呼び出しベル作ってて   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    これ押すと   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いぬちゃんが助っ人を呼びに行って   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    こうなる   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    wwwwwwwww   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    草wwwwww   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    一気に会場が華やかに   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    チョイスwwwwww   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    暗い部屋照らせるのこのお方ぐらいしかいないかなって   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    こんなにマツケンの素材あるのwwwwww   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    左の女の人　なんでかネットに素材転がってた   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    なんで？   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    なんでだよwwwほんとうにwww   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    これでホラー緩和して先に進んでもらっていた<br>この部屋で唯一頑張ったことなので見てもらいたかった　おしまい   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    マツケンで見送られてハッピーになったわよwww   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    以上～～～～～～～～～～～！！！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    KP天界で茶々入れてるのであとでログ覗いてみてください   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    あと他陣は送っとく！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    スキマ時間にいろいろ読ませていただく〜〜〜！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    パス共通です「kane」   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    俺らの墓場   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    俺らの墓場   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    チーム墓場   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    墓場で何する？   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    スリーマンセル！！！！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    UNO？   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    あのね　もう一個決まってるよ！！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    かわいいかわいいかわいい   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    みんなで一緒に親戚のとこのクーラー壊しに行くの！！！！！！！   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    急に誰だテメェ   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    知らねえやつだけど、のった   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    君の先輩、です！むふん   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    俺水道の蛇口も盗んどくわ   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    なにそれ！？！超いいじゃん   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    宇さんにも相談しよ！！！なんかもっといい嫌がらせないか！！   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    せんぱい〜〜〜？？？どう見ても俺の方上！って顔してるだろ   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    なんてよむ  そいつ   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    ひさし！   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    ひさし！！！！   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    大学生のお兄さんです！   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    くっそ歳上じゃん   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    いいひとだよ？すぐからかってくるけど……（ぎりぎり）   </dd></dl>
+<dl style="color:#ea3e77" class="zatsudan"><dt>深田 千早</dt><dd>    まあまあまあ、死んじゃった同士手をとりあってさ！仲良くやろうぜ！<br>終わったらみんなでどんちゃん宴だ～～～～！   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    まじで自分の名前見るたび焚きあげられたんだなと思って笑ってしまう   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ   </dd></dl>
+<dl style="color:#927a3a" class="zatsudan"><dt>焚胡 恭也 </dt><dd>    いや  おもろすぎるでしょ   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いや～～～～～～～～～～～～～～～ね　そうなっちゃったね   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    よくできてる   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いやでも毎度毎度楽しんでくれてめちゃくちゃHAPPYでした   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    面白いんだなあ　このシナリオ　好き   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    本当に夢中にならせてくれてありがとう   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    こちらこそ！！！！！！またぜひ心身の余裕あるときにあそぼ   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    思い切って飛び込んでみてやりたい子作れてやりたいことした   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    めちゃくちゃめちゃくちゃめちゃくちゃめちゃくちゃめちゃくちゃめちゃくちゃめちゃくちゃめちゃくちゃめちゃくちゃめちゃくちゃよかった   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    女の子つくりた〜〜〜〜〜〜いのでしばし休憩したら遊びたいです   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ありがとう🥹🥹🥹🥹🥹   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    シナリオ特性上あんまり暴れさせてあげられなかったので悔いは残るが　ぜひなんとしてもまたどっかの機会で巡りあいたいです🫶   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    女の子！！！！！！！つくろう！！！！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    いつでも門戸叩いてください   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    ありがとう！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    たたく！！！！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    てなわけで～～～～～第五走者：焚胡 恭也選手　<br>ロスト！！！華々しく散ったぜ！！！！遺影！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    最高の夏至をありがとうな～～～～～！！！！！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    こちらこそ！！！本当にありがとうございました！！！！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    ありがとありがと！いい夢みてね～～～！！！！   </dd></dl>
+<dl style="color:#e91e63" class="zatsudan"><dt>KP</dt><dd>    おやすみ～～～～～～～～～～～～～！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    本当にめちゃくちゃ楽しいかった〜〜〜！！！！！！！！！！   </dd></dl>
+<dl style="color:#a64826" class="zatsudan"><dt>くるこ</dt><dd>    おやすみなさい！！！！   </dd></dl>
+
+</div>
+<footer></footer>
+
+<script>
+const Hide = (checkbox) => {
+  const elmntTarget = document.getElementsByClassName(checkbox.id)
+  for (let intCount = 0; intCount < elmntTarget.length; intCount++) {
+    const message = elmntTarget[intCount]
+    const contexts = message.className.split(' ')
+    let elmntChecked = checkbox.checked
+    contexts.forEach((context) => {
+      const contextCheckbox = document.getElementById(context)
+      if (contextCheckbox) {
+        elmntChecked &= contextCheckbox.checked
+      }
+    })
+    message.style.display = elmntChecked ? 'none' : ''
+  }
+}
+</script>
+</body>
+</html>
